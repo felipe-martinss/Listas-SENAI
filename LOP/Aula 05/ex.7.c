@@ -1,14 +1,19 @@
 #include <stdio.h>
-void main (){
-	float a, b, c, d;
-	printf ("Informe quantos caminhoes a fazenda possui:\n");
-	scanf ("%f", &a);
-	printf ("Agora, informe quantos alqueires a fazenda possui:\n");
-	scanf ("%f", &b);
+void main(){
+	int caminhao = 18;
+	int alqueire = 250;
+	int caminhoes, alqueires, viagens, quebrados;
+	printf("Digite quantos caminões o fazendeiro possui:\n");
+	scanf("%d", &caminhoes);
+	printf("Digite quantos alqueires a fazenda possui:\n");
+	scanf("%d", &alqueires);
 	
-	c =  (b * 250) / (a * 18);
+	viagens = (alqueires * alqueire) / (caminhoes * caminhao);
+	quebrados = (alqueires * alqueire) % (caminhoes * caminhao);
+	if(quebrados != 0){
+		viagens = viagens + 1;
+	}
 	
-	printf ("Será necessário aproximadamente %.0f viagens para levar todo o lote de laranjas", c);
+	printf("Será necessário %d viagens para tranportar a colheita.", viagens);
 	getch();
-	
 }
